@@ -1,17 +1,39 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-2020-12/schema#",
   "type": "array",
+  "description": "An array of exactly 5 slides for a presentation.",
   "minItems": 5,
   "maxItems": 5,
   "items": {
     "type": "object",
     "properties": {
-      "slide": { "type": "integer", "minimum": 1, "maximum": 5 },
-      "headline": { "type": "string", "maxLength": 60 },
-      "body": { "type": "string", "maxLength": 200 },
-      "notes": { "type": "string", "maxLength": 200 }
+      "slide": {
+        "type": "integer",
+        "description": "A unique slide number, from 1 to 5.",
+        "minimum": 1,
+        "maximum": 5
+      },
+      "headline": {
+        "type": "string",
+        "description": "A concise headline for the slide, maximum 60 characters.",
+        "maxLength": 60
+      },
+      "body": {
+        "type": "string",
+        "description": "The main content of the slide, maximum 200 characters.",
+        "maxLength": 200
+      },
+      "notes": {
+        "type": "string",
+        "description": "Optional speaker notes for the slide, maximum 200 characters.",
+        "maxLength": 200
+      }
     },
-    "required": ["slide", "headline", "body"],
+    "required": [
+      "slide",
+      "headline",
+      "body"
+    ],
     "additionalProperties": false
   }
 }
